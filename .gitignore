@@ -1,0 +1,10 @@
+build/
+dist/
+/nbproject/*
+
+*.jar
+*.war
+*.ear
+
+!/nbproject/project.xml
+!/nbproject/project.properties

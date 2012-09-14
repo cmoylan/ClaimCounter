@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import jfxtras.labs.scene.control.gauge.SplitFlap?>
+
+
+<GridPane fx:controller="claimcounter.ClaimCounterController"
+    stylesheets="claimcounter/claimcounter.css"
+    xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="0" vgap="0">
+<!--padding><Insets top="25" right="25" bottom="10" left="25"/></padding-->
+
+    <!-- Logo -->
+    <HBox spacing="20" alignment="top_center"
+        GridPane.columnIndex="1" GridPane.rowIndex="0"
+        GridPane.columnSpan="6" >
+        <Text id="welcome-text" text="Snapsheet" />
+    </HBox>
+
+    <!-- Split flap counters -->
+    <HBox alignment="bottom_right" spacing="0"
+        GridPane.columnIndex="1" GridPane.rowIndex="1"
+        GridPane.columnSpan="6">
+        <SplitFlap fx:id="flip1" />
+        <SplitFlap fx:id="flip2" />
+        <SplitFlap fx:id="flip3" />
+        <SplitFlap fx:id="flip4" />
+        <SplitFlap fx:id="flip5" />
+        <SplitFlap fx:id="flip6" />
+    </HBox>
+
+    <!-- Dials -->
+
+
+
+    <!--Label text="User Name:"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <TextField
+        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <PasswordField fx:id="passwordField"
+        GridPane.columnIndex="1" GridPane.rowIndex="3"/-->
+
+    <!--HBox spacing="0" alignment="bottom_right"
+        GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button text="Sign In"
+        onAction="#handleSubmitButtonAction"/>
+    </HBox>
+
+    <Text fx:id="actiontarget"
+        GridPane.columnIndex="1" GridPane.rowIndex="6"/-->
+
+
+</GridPane>
