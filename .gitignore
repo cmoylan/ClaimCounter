@@ -6,5 +6,8 @@ dist/
 *.war
 *.ear
 
+*.swp
+.DS_Store
+
 !/nbproject/project.xml
 !/nbproject/project.properties
