@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import jfxtras.labs.scene.control.gauge.SplitFlap?>
 
 
@@ -22,7 +23,11 @@
     <HBox spacing="20" alignment="top_center" fx:id="logo"
         GridPane.columnIndex="1" GridPane.rowIndex="0"
         GridPane.columnSpan="6" >
-        <Text id="welcome-text" text="" />
+        <ImageView>
+            <image>
+                <Image url="@ss_logo.png"/>
+            </image>
+        </ImageView>
     </HBox>
 
     <!-- Split flap counters -->
@@ -35,6 +40,7 @@
         <SplitFlap fx:id="flip4" />
         <SplitFlap fx:id="flip5" />
         <SplitFlap fx:id="flip6" />
+        <SplitFlap fx:id="flip7" />
     </HBox>
 
     <!-- Dials -->

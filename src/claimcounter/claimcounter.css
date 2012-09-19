@@ -4,15 +4,11 @@
 
 .root {
     -fx-base: rgb(132, 145, 47);    
-    -fx-background: rgb(225, 228, 203);
+    -fx-background-color: rgb(53, 53, 53);
 }
 
 #logo {
-    /* TODO: figure out how to make this look better */
-    -fx-background-image: url("ss_logo.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: 50% 0;
-    -fx-background-size: 30%;
+    -fx-padding: 25px;
 }
 
 .mainFxmlClass {
