@@ -13,16 +13,16 @@
 <?import jfxtras.labs.scene.control.gauge.SplitFlap?>
 
 
-<GridPane fx:controller="claimcounter.ClaimCounterController"
+<GridPane fx:controller="claimcounter.ClaimCounterController" 
     stylesheets="claimcounter/claimcounter.css"
     xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="0" vgap="0">
 <!--padding><Insets top="25" right="25" bottom="10" left="25"/></padding-->
 
     <!-- Logo -->
-    <HBox spacing="20" alignment="top_center"
+    <HBox spacing="20" alignment="top_center" fx:id="logo"
         GridPane.columnIndex="1" GridPane.rowIndex="0"
         GridPane.columnSpan="6" >
-        <Text id="welcome-text" text="Snapsheet" />
+        <Text id="welcome-text" text="" />
     </HBox>
 
     <!-- Split flap counters -->
