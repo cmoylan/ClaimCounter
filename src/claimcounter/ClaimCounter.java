@@ -49,7 +49,7 @@ public class ClaimCounter extends Application {
                     //System.out.print("doing it");
                     //radial1.setValue(RND.nextDouble() * 100);
                     //setClock();
-                    controller.doIt();
+                    controller.setCounter(234567);
                     lastTimeCall = System.nanoTime();
                 }
             }
@@ -63,13 +63,13 @@ public class ClaimCounter extends Application {
         Parent root = (Parent) fxmlLoader.load(location.openStream());
         controller = fxmlLoader.getController();
 
-        
+
         // Set some window properties
         primaryStage.setResizable(true);
         primaryStage.setTitle("This is how you set the title");
         primaryStage.setScene(new Scene(root));
 
-        
+
         // Create some controls
         //StyleModel STYLE_MODEL_1 = StyleModelBuilder.create()
         //                                            .frameDesign(Gauge.FrameDesign.STEEL)
@@ -153,7 +153,7 @@ public class ClaimCounter extends Application {
 
     public double getSampleHeight() { return 600; }
 
-    @Override 
+    @Override
     public void start(Stage primaryStage) throws Exception {
         init(primaryStage);
         primaryStage.show();

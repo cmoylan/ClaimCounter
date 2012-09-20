@@ -14,7 +14,7 @@
 <?import jfxtras.labs.scene.control.gauge.SplitFlap?>
 
 
-<GridPane fx:controller="claimcounter.ClaimCounterController" 
+<GridPane fx:controller="claimcounter.ClaimCounterController"
     stylesheets="claimcounter/claimcounter.css"
     xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="0" vgap="0">
 <!--padding><Insets top="25" right="25" bottom="10" left="25"/></padding-->
@@ -35,9 +35,14 @@
         GridPane.columnIndex="1" GridPane.rowIndex="1"
         GridPane.columnSpan="6">
         <SplitFlap fx:id="flip1" />
+        <Text text="," styleClass="splitFlapComma" />
+
         <SplitFlap fx:id="flip2" />
         <SplitFlap fx:id="flip3" />
         <SplitFlap fx:id="flip4" />
+        <Text text="," styleClass="splitFlapComma" />
+
+
         <SplitFlap fx:id="flip5" />
         <SplitFlap fx:id="flip6" />
         <SplitFlap fx:id="flip7" />
