@@ -4,6 +4,7 @@
  */
 package claimcounter;
 
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Random;
 import javafx.animation.AnimationTimer;
@@ -16,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import jfxtras.labs.scene.control.gauge.Gauge;
@@ -37,27 +39,37 @@ public class ClaimCounter extends Application {
     private static final long    TIME_PERIOD  = 5000000000l; // about 5 seconds
     private Radial radial1;
     private long                 lastTimeCall = 0;
+    private ClaimCounterController controller;
     private final AnimationTimer TIMER        = new AnimationTimer() {
 
-    @Override
-    public void handle(long l) {
-        long currentNanoTime = System.nanoTime();
-            if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
-                //System.out.print("doing it");
-                //radial1.setValue(RND.nextDouble() * 100);
-                //setClock();
-                lastTimeCall = System.nanoTime();
+        @Override
+        public void handle(long l) {
+            long currentNanoTime = System.nanoTime();
+                if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
+                    //System.out.print("doing it");
+                    //radial1.setValue(RND.nextDouble() * 100);
+                    //setClock();
+                    controller.doIt();
+                    lastTimeCall = System.nanoTime();
+                }
             }
-        }
     };
 
     private void init(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ClaimCounter.fxml"));
-        //Group root = new Group();
+        // Load the fxml and controller
+        URL location = getClass().getResource("ClaimCounter.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(location);
+        Parent root = (Parent) fxmlLoader.load(location.openStream());
+        controller = fxmlLoader.getController();
+
+        
+        // Set some window properties
         primaryStage.setResizable(true);
         primaryStage.setTitle("This is how you set the title");
         primaryStage.setScene(new Scene(root));
 
+        
         // Create some controls
         //StyleModel STYLE_MODEL_1 = StyleModelBuilder.create()
         //                                            .frameDesign(Gauge.FrameDesign.STEEL)
@@ -79,15 +91,6 @@ public class ClaimCounter extends Application {
 
 
         /*
-        // Layout
-        final GridPane pane = new GridPane();
-        // TODO: debug only, remove
-        pane.setGridLinesVisible(true);
-        //pane.setPadding(new Insets(5));
-        //pane.setHgap(0);
-        //pane.setVgap(5);
-        pane.setAlignment(Pos.TOP_CENTER);
-
         // Add controls to the layout
         pane.add(flip1, 0, 0);
         pane.add(flip2, 1, 0);
@@ -97,11 +100,7 @@ public class ClaimCounter extends Application {
         //GridPane.setMargin(flip4, new Insets(0, 10, 0, 0));
         pane.add(flip5, 4, 0);
         pane.add(flip6, 5, 0);
-
-
-        root.getChildren().add(pane);
         */
-
     }
 
     private void setClock() {

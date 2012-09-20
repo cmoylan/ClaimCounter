@@ -25,7 +25,7 @@ public class ClaimCounterController implements Initializable {
     }
 
     @FXML private SplitFlap flip1;
-    //@FXML private SplitFlap flip2;
+    @FXML private SplitFlap flip2;
     //@FXML private SplitFlap flip3;
     //@FXML private SplitFlap flip4;
     //@FXML private SplitFlap flip5;
@@ -39,5 +39,9 @@ public class ClaimCounterController implements Initializable {
         // TODO
         flip1.setText("0");
 
+    }
+    
+    public void doIt() {
+        flip2.setText("5");
     }
 }
