@@ -41,7 +41,7 @@ public class ClaimCounterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        flip1.setText("0");
+        //flip1.setText("0");
 
     }
 
