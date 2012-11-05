@@ -9,7 +9,6 @@ import java.io.DataInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -19,6 +18,7 @@ import org.json.simple.parser.JSONParser;
  */
 public class ClaimData {
     private String urlString = "http://localhost:3000/counter_data";
+    private JSONObject counterDataJSON;
 
     public ClaimData() {        
         try {
@@ -27,29 +27,25 @@ public class ClaimData {
             InputStream is = conn.getInputStream();
             DataInputStream dis = new DataInputStream(new BufferedInputStream(is));
             String s = dis.readLine();
-            //System.out.println(dis.readLine());
             is.close();
             
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(s);
-            //obj['']
-            //JSONArray array=(JSONArray)obj;
-            //JSONObject obj2=(JSONObject)array.get(1);
-
-            System.out.print(obj);
-            //System.out.print(obj2.get("claim_count"));
-            //JSONObject(s);
-            //while ((s = dis.readLine()) != null) {
-            //    System.out.println(s);
-            //}
-            
-        } catch (Exception blah) {
-            
+            counterDataJSON = (JSONObject) obj;
+        } 
+        catch (Exception blah) {
+            // TODO: do something
         }
     }
     
     public String getClaimCount() {
-        return "";
+        String count = "0";
+
+        if (counterDataJSON != null) {
+            count = counterDataJSON.get("claim_count").toString();
+        }
+
+        return count;
     }
     
 }
