@@ -55,6 +55,7 @@ public class ClaimCounterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         StyleModel STYLE_MODEL_1 = StyleModelBuilder.create()
                                                     .frameDesign(Gauge.FrameDesign.ANTHRACITE)
+                                                    .backgroundDesign(Gauge.BackgroundDesign.WHITE)
                                                     .tickLabelOrientation(Gauge.TicklabelOrientation.HORIZONTAL)
                                                     .pointerType(Gauge.PointerType.TYPE14)
                                                     .thresholdVisible(true)

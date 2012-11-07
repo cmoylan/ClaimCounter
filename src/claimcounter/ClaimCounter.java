@@ -20,17 +20,20 @@ import javafx.stage.Stage;
  * @author chrismoylan
  */
 public class ClaimCounter extends Application {
-    private static final Random  RND          = new Random();
-    private static final long    TIME_PERIOD  =   5000000000l; // about 5 seconds
-    private long                 lastTimeCall = 0;
-    private ClaimCounterController controller;
-    private ClaimData data;
+    private static final Random     RND          = new Random();
+    //private static final long     TIME_PERIOD  =   5000000000l; // about 5 seconds
+    private static final long       TIME_PERIOD  =   60000000000l; // about a minute
+    private long                    lastTimeCall = 0;
+    private ClaimCounterController  controller;
+    private ClaimData               data;
 
     private final AnimationTimer TIMER        = new AnimationTimer() {
         @Override
         public void handle(long l) {
             long currentNanoTime = System.nanoTime();
                 if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
+                    data.updateData();
+
                     controller.setCounter(data.fetch("claim_count"));
                     controller.setRadial1(data.fetch("estimates_per_hour"));
                     controller.setRadial2(data.fetch("estimates_today"));
