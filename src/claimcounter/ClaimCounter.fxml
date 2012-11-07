@@ -19,7 +19,6 @@
 <GridPane fx:controller="claimcounter.ClaimCounterController"
     stylesheets="claimcounter/claimcounter.css"
     xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="0" vgap="0">
-<!--padding><Insets top="25" right="25" bottom="10" left="25"/></padding-->
 
     <!-- Logo -->
     <HBox spacing="20" alignment="top_center" fx:id="logo"
@@ -63,7 +62,7 @@
         <VBox alignment="center" spacing="10">
             <padding><Insets top="100" right="25" bottom="10" left="25"/></padding>
             <Radial fx:id="radial1" />
-            <Text text="estimates per hour" styleClass="guageDescription" />
+            <Text text="estimates / hour" styleClass="guageDescription" />
         </VBox>
 
         <VBox alignment="center" spacing="10">
@@ -78,28 +77,5 @@
             <Text text="claims today" styleClass="guageDescription" />
         </VBox>
     </HBox>
-
-
-    <!--Label text="User Name:"
-        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-
-    <TextField
-        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-    <Label text="Password:"
-        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-
-    <PasswordField fx:id="passwordField"
-        GridPane.columnIndex="1" GridPane.rowIndex="3"/-->
-
-    <!--HBox spacing="0" alignment="bottom_right"
-        GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In"
-        onAction="#handleSubmitButtonAction"/>
-    </HBox>
-
-    <Text fx:id="actiontarget"
-        GridPane.columnIndex="1" GridPane.rowIndex="6"/-->
-
-
+    
 </GridPane>
