@@ -31,11 +31,11 @@ public class ClaimCounter extends Application {
         public void handle(long l) {
             long currentNanoTime = System.nanoTime();
                 if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
-                    System.out.print("\n --- 2");
                     controller.setCounter(data.fetch("claim_count"));
                     controller.setRadial1(data.fetch("estimates_per_hour"));
                     controller.setRadial2(data.fetch("estimates_today"));
                     controller.setRadial3(data.fetch("claims_today"));
+
                     lastTimeCall = System.nanoTime();
                 }
             }
@@ -46,7 +46,6 @@ public class ClaimCounter extends Application {
         // Load the custom font so that the css can access it
         Font.loadFont("file:resources/fonts/Marmellata.ttf", 12);
 
-        System.out.print("--- 1");
         // Load the fxml and controller
         URL location = getClass().getResource("ClaimCounter.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader();

@@ -56,6 +56,7 @@
     </HBox>
 
     <!-- Dials -->
+    <!-- TODO: extract padding to css -->
     <HBox alignment="center"
         GridPane.columnIndex="1" GridPane.rowIndex="3"
         GridPane.columnSpan="6">
@@ -66,7 +67,7 @@
         </VBox>
 
         <VBox alignment="top_center" spacing="10">
-            <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+            <padding><Insets top="25" right="65" bottom="10" left="65"/></padding>
             <RadialHalfN fx:id="radial2" />
             <Text text="estimates today" styleClass="guageDescription" />
         </VBox>
