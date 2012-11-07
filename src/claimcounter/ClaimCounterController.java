@@ -40,7 +40,7 @@ public class ClaimCounterController implements Initializable {
     @FXML private SplitFlap flip5;
     @FXML private SplitFlap flip6;
     @FXML private SplitFlap flip7;
-    
+
     @FXML private Radial radial1;
     @FXML private RadialHalfN radial2;
     @FXML private Radial radial3;
@@ -71,18 +71,18 @@ public class ClaimCounterController implements Initializable {
                                                     .valueColor(ColorDef.BLUE)
                                                     .ledColor(LedColor.CYAN)
                                                     .build();
-        
+
         radial1.setStyleModel(STYLE_MODEL_1);
         radial1.setThreshold(30);
         radial1.setPrefSize(250, 250);
-        
+
         radial2.setStyleModel(STYLE_MODEL_2);
-        radial2.setThreshold(50);
+        radial2.setThreshold(80);
         radial2.setTickLabelOrientation(Gauge.TicklabelOrientation.NORMAL);
         radial2.setPrefSize(250, 250);
-        
+
         radial3.setStyleModel(STYLE_MODEL_1);
-        radial3.setThreshold(30);
+        radial3.setThreshold(10);
         radial3.setPrefSize(250, 250);
     }
 
@@ -121,8 +121,8 @@ public class ClaimCounterController implements Initializable {
     }
 
     /**
-     * Convenience method so you can pass an integer to setCounter. 
-     * 
+     * Convenience method so you can pass an integer to setCounter.
+     *
      * Who doesn't love method overloading?
      *
      * @param val
@@ -130,16 +130,16 @@ public class ClaimCounterController implements Initializable {
     public void setCounter(Integer val) {
         setCounter(val.toString());
     }
-    
+
     // TODO: --- this kind of sucks, fix it ---
     public void setRadial1(Integer val) {
         radial1.setValue(val);
     }
-    
+
     public void setRadial2(Integer val) {
         radial2.setValue(val);
     }
-    
+
     public void setRadial3(Integer val) {
         radial3.setValue(val);
     }

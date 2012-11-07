@@ -25,23 +25,24 @@ public class ClaimCounter extends Application {
     private long                 lastTimeCall = 0;
     private ClaimCounterController controller;
     private ClaimData data;
-            
+
     private final AnimationTimer TIMER        = new AnimationTimer() {
         @Override
         public void handle(long l) {
             long currentNanoTime = System.nanoTime();
                 if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
                     System.out.print("\n --- 2");
-                    controller.setCounter(data.getClaimCount());
-                    controller.setRadial1(40);
-                    controller.setRadial2(60);
-                    controller.setRadial3(25);
+                    controller.setCounter(data.fetch("claim_count"));
+                    controller.setRadial1(data.fetch("estimates_per_hour"));
+                    controller.setRadial2(data.fetch("estimates_today"));
+                    controller.setRadial3(data.fetch("claims_today"));
                     lastTimeCall = System.nanoTime();
                 }
             }
     };
 
     private void init(Stage primaryStage) throws Exception {
+
         // Load the custom font so that the css can access it
         Font.loadFont("file:resources/fonts/Marmellata.ttf", 12);
 
@@ -50,19 +51,20 @@ public class ClaimCounter extends Application {
         URL location = getClass().getResource("ClaimCounter.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(location);
-        
+        Parent root = (Parent) fxmlLoader.load(location.openStream());
+
         // Store controller on the instance so that it can be accessed
         controller = fxmlLoader.getController();
+
+        // Load data to drive the counter
+        data = new ClaimData();
 
         // Set some window properties
         primaryStage.setResizable(true);
         primaryStage.setTitle("All your claim are belong to us");
-        
-        Parent root = (Parent) fxmlLoader.load(location.openStream());
-        primaryStage.setScene(new Scene(root));
 
-        // Load data to drive the counter
-        data = new ClaimData();
+        //Parent root = (Parent) fxmlLoader.load(location.openStream());
+        primaryStage.setScene(new Scene(root));
     }
 
     //@Override
@@ -74,7 +76,7 @@ public class ClaimCounter extends Application {
     public void stop() {
         TIMER.stop();
     }
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         init(primaryStage);

@@ -56,7 +56,7 @@
     </HBox>
 
     <!-- Dials -->
-    <HBox alignment="center" 
+    <HBox alignment="center"
         GridPane.columnIndex="1" GridPane.rowIndex="3"
         GridPane.columnSpan="6">
         <VBox alignment="center" spacing="10">
@@ -65,7 +65,7 @@
             <Text text="estimates / hour" styleClass="guageDescription" />
         </VBox>
 
-        <VBox alignment="center" spacing="10">
+        <VBox alignment="top_center" spacing="10">
             <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
             <RadialHalfN fx:id="radial2" />
             <Text text="estimates today" styleClass="guageDescription" />
@@ -77,5 +77,5 @@
             <Text text="claims today" styleClass="guageDescription" />
         </VBox>
     </HBox>
-    
+
 </GridPane>
