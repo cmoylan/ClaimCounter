@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import jfxtras.labs.scene.control.gauge.Gauge;
 import jfxtras.labs.scene.control.gauge.LcdDesign;
@@ -59,6 +60,9 @@ public class ClaimCounter extends Application {
     };
 
     private void init(Stage primaryStage) throws Exception {
+        // Load the custom font so that the css can access it
+        Font.loadFont("file:resources/fonts/Marmellata.ttf", 12);
+
         System.out.print("--- 1");
         // Load the fxml and controller
         URL location = getClass().getResource("ClaimCounter.fxml");

@@ -1,6 +1,10 @@
 /*
  * Empty Stylesheet file.
 */
+/*@font-face {
+    font-family: Marmellata;
+    src: url('./Marmellata(Jam)_demo.ttf');
+}*/
 
 .root {
     -fx-base: rgb(132, 145, 47);
@@ -24,6 +28,16 @@
 }
 .splitFlapComma {
     -fx-font-size: 150px;
+    -fx-fill: #fff;
+}
+.splitFlapDescription {
+    -fx-font-family: 'Marmellata (Jam)_demo';
+    -fx-font-size: 32px;
+    -fx-fill: #fff;
+}
+.guageDescription {
+    -fx-font-family: 'Marmellata (Jam)_demo';
+    -fx-font-size: 42px;
     -fx-fill: #fff;
 }
 #actiontarget {

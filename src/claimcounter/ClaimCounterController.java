@@ -62,7 +62,7 @@ public class ClaimCounterController implements Initializable {
                                                     .build();
 
         StyleModel STYLE_MODEL_2 = StyleModelBuilder.create()
-                                                    .frameDesign(Gauge.FrameDesign.STEEL)
+                                                    .frameDesign(Gauge.FrameDesign.ANTHRACITE)
                                                     .backgroundDesign(Gauge.BackgroundDesign.BLACK)
                                                     .tickLabelOrientation(Gauge.TicklabelOrientation.TANGENT)
                                                     .bargraph(true)
@@ -121,7 +121,9 @@ public class ClaimCounterController implements Initializable {
     }
 
     /**
-     * Convenience method so you can pass an integer to setCounter
+     * Convenience method so you can pass an integer to setCounter. 
+     * 
+     * Who doesn't love method overloading?
      *
      * @param val
      */

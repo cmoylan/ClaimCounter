@@ -49,25 +49,35 @@
         <SplitFlap fx:id="flip6" />
         <SplitFlap fx:id="flip7" />
     </HBox>
+    <HBox alignment="top_right"
+        GridPane.columnIndex="1" GridPane.rowIndex="2"
+        GridPane.columnSpan="6">
+        <padding><Insets top="10" right="0" bottom="10" left="10"/></padding>
+        <Text text="total claims" styleClass="splitFlapDescription" />
+    </HBox>
 
     <!-- Dials -->
-    <VBox spacing="0"
-        GridPane.columnIndex="1" GridPane.rowIndex="2"
-        GridPane.columnSpan="2">
-        <Radial fx:id="radial1" />
-    </VBox>
+    <HBox alignment="center" 
+        GridPane.columnIndex="1" GridPane.rowIndex="3"
+        GridPane.columnSpan="6">
+        <VBox alignment="center" spacing="10">
+            <padding><Insets top="100" right="25" bottom="10" left="25"/></padding>
+            <Radial fx:id="radial1" />
+            <Text text="estimates per hour" styleClass="guageDescription" />
+        </VBox>
 
-    <VBox spacing="0"
-        GridPane.columnIndex="3" GridPane.rowIndex="2"
-        GridPane.columnSpan="2">
-        <RadialHalfN fx:id="radial2" />
-    </VBox>
-    
-    <VBox spacing="0"
-        GridPane.columnIndex="5" GridPane.rowIndex="2"
-        GridPane.columnSpan="2">
-        <Radial fx:id="radial3" />
-    </VBox>
+        <VBox alignment="center" spacing="10">
+            <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+            <RadialHalfN fx:id="radial2" />
+            <Text text="estimates today" styleClass="guageDescription" />
+        </VBox>
+
+        <VBox alignment="center" spacing="10">
+            <padding><Insets top="100" right="25" bottom="10" left="25"/></padding>
+            <Radial fx:id="radial3" />
+            <Text text="claims today" styleClass="guageDescription" />
+        </VBox>
+    </HBox>
 
 
     <!--Label text="User Name:"
