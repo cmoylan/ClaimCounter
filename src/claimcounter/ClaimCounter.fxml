@@ -12,6 +12,8 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import jfxtras.labs.scene.control.gauge.SplitFlap?>
+<?import jfxtras.labs.scene.control.gauge.Radial?>
+<?import jfxtras.labs.scene.control.gauge.RadialHalfN?>
 
 
 <GridPane fx:controller="claimcounter.ClaimCounterController"
@@ -49,7 +51,23 @@
     </HBox>
 
     <!-- Dials -->
+    <VBox spacing="0"
+        GridPane.columnIndex="1" GridPane.rowIndex="2"
+        GridPane.columnSpan="2">
+        <Radial fx:id="radial1" />
+    </VBox>
 
+    <VBox spacing="0"
+        GridPane.columnIndex="3" GridPane.rowIndex="2"
+        GridPane.columnSpan="2">
+        <RadialHalfN fx:id="radial2" />
+    </VBox>
+    
+    <VBox spacing="0"
+        GridPane.columnIndex="5" GridPane.rowIndex="2"
+        GridPane.columnSpan="2">
+        <Radial fx:id="radial3" />
+    </VBox>
 
 
     <!--Label text="User Name:"

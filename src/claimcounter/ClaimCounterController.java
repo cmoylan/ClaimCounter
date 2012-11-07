@@ -10,7 +10,16 @@ import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
+import jfxtras.labs.scene.control.gauge.ColorDef;
+import jfxtras.labs.scene.control.gauge.Gauge;
+import jfxtras.labs.scene.control.gauge.LcdDesign;
+import jfxtras.labs.scene.control.gauge.LedColor;
 import jfxtras.labs.scene.control.gauge.SplitFlap;
+import jfxtras.labs.scene.control.gauge.Radial;
+import jfxtras.labs.scene.control.gauge.RadialHalfN;
+import jfxtras.labs.scene.control.gauge.StyleModel;
+import jfxtras.labs.scene.control.gauge.StyleModelBuilder;
+
 
 /**
  * FXML Controller class
@@ -31,6 +40,10 @@ public class ClaimCounterController implements Initializable {
     @FXML private SplitFlap flip5;
     @FXML private SplitFlap flip6;
     @FXML private SplitFlap flip7;
+    
+    @FXML private Radial radial1;
+    @FXML private RadialHalfN radial2;
+    @FXML private Radial radial3;
 
 
     private Integer SPLIT_FLAP_LENGTH = 7;
@@ -40,9 +53,37 @@ public class ClaimCounterController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //flip1.setText("0");
+        StyleModel STYLE_MODEL_1 = StyleModelBuilder.create()
+                                                    .frameDesign(Gauge.FrameDesign.ANTHRACITE)
+                                                    .tickLabelOrientation(Gauge.TicklabelOrientation.HORIZONTAL)
+                                                    .pointerType(Gauge.PointerType.TYPE14)
+                                                    .thresholdVisible(true)
+                                                    .lcdDesign(LcdDesign.STANDARD_GREEN)
+                                                    .build();
 
+        StyleModel STYLE_MODEL_2 = StyleModelBuilder.create()
+                                                    .frameDesign(Gauge.FrameDesign.STEEL)
+                                                    .backgroundDesign(Gauge.BackgroundDesign.BLACK)
+                                                    .tickLabelOrientation(Gauge.TicklabelOrientation.TANGENT)
+                                                    .bargraph(true)
+                                                    .thresholdColor(Gauge.ThresholdColor.RED)
+                                                    .thresholdVisible(true)
+                                                    .valueColor(ColorDef.BLUE)
+                                                    .ledColor(LedColor.CYAN)
+                                                    .build();
+        
+        radial1.setStyleModel(STYLE_MODEL_1);
+        radial1.setThreshold(30);
+        radial1.setPrefSize(250, 250);
+        
+        radial2.setStyleModel(STYLE_MODEL_2);
+        radial2.setThreshold(50);
+        radial2.setTickLabelOrientation(Gauge.TicklabelOrientation.NORMAL);
+        radial2.setPrefSize(250, 250);
+        
+        radial3.setStyleModel(STYLE_MODEL_1);
+        radial3.setThreshold(30);
+        radial3.setPrefSize(250, 250);
     }
 
     /**
@@ -87,5 +128,19 @@ public class ClaimCounterController implements Initializable {
     public void setCounter(Integer val) {
         setCounter(val.toString());
     }
+    
+    // TODO: --- this kind of sucks, fix it ---
+    public void setRadial1(Integer val) {
+        radial1.setValue(val);
+    }
+    
+    public void setRadial2(Integer val) {
+        radial2.setValue(val);
+    }
+    
+    public void setRadial3(Integer val) {
+        radial3.setValue(val);
+    }
+    // --- END TODO ---
 
 }

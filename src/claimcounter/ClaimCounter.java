@@ -37,7 +37,7 @@ public class ClaimCounter extends Application {
     private static final Random  RND          = new Random();
     //private static final long    TIME_PERIOD  = 1000000000l; // about 1 seconds
     //private static final long    TIME_PERIOD  = 10000000000l; // about 10 seconds
-    private static final long    TIME_PERIOD  =   2000000000l; // about 5 seconds
+    private static final long    TIME_PERIOD  =   5000000000l; // about 5 seconds
     private Radial radial1;
     private long                 lastTimeCall = 0;
     private ClaimCounterController controller;
@@ -50,6 +50,9 @@ public class ClaimCounter extends Application {
                 if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
                     System.out.print("\n --- 2");
                     controller.setCounter(data.getClaimCount());
+                    controller.setRadial1(40);
+                    controller.setRadial2(60);
+                    controller.setRadial3(25);
                     lastTimeCall = System.nanoTime();
                 }
             }
