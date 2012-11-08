@@ -29,7 +29,7 @@ public class ClaimData {
     private JSONObject counterDataJSON;
 
     public ClaimData() {
-        updateData();
+        //updateData();
     }
 
     public Integer fetch(String key) {
