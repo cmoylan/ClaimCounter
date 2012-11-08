@@ -47,8 +47,7 @@ public class ClaimCounter extends Application {
     private void init(Stage primaryStage) throws Exception {
 
         // Load the custom font so that the css can access it
-        Font blah = Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Marmellata.ttf"), 12);
-        System.out.print(blah);
+        Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Marmellata.ttf"), 12);
 
         // Load the fxml and controller
         URL location = getClass().getResource("ClaimCounter.fxml");
