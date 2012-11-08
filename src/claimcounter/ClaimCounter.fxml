@@ -26,7 +26,7 @@
         GridPane.columnSpan="6" >
         <ImageView>
             <image>
-                <Image url="@ss_logo.png"/>
+                <Image url="/resources/images/ss_logo.png"/>
             </image>
         </ImageView>
     </HBox>
