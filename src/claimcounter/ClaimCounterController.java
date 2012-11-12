@@ -74,11 +74,11 @@ public class ClaimCounterController implements Initializable {
                                                     .build();
 
         radial1.setStyleModel(STYLE_MODEL_1);
-        radial1.setThreshold(30);
+        radial1.setThreshold(15);
         radial1.setPrefSize(250, 250);
 
         radial2.setStyleModel(STYLE_MODEL_2);
-        radial2.setThreshold(80);
+        radial2.setThreshold(70);
         radial2.setTickLabelOrientation(Gauge.TicklabelOrientation.NORMAL);
         radial2.setPrefSize(250, 250);
 
