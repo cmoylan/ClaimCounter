@@ -41,7 +41,6 @@ public class ClaimData {
             if (value != null) {
                 // TODO: this seems a little rediculous
                 count = Integer.valueOf(value.toString());
-
             }
         }
 

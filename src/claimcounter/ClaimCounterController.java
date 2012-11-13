@@ -29,9 +29,9 @@ import jfxtras.labs.scene.control.gauge.StyleModelBuilder;
 public class ClaimCounterController implements Initializable {
     @FXML private Text actiontarget;
 
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
-        actiontarget.setText("Sign in button pressed");
-    }
+    //@FXML protected void handleSubmitButtonAction(ActionEvent event) {
+    //    actiontarget.setText("Sign in button pressed");
+    //}
 
     @FXML private SplitFlap flip1;
     @FXML private SplitFlap flip2;
@@ -75,16 +75,27 @@ public class ClaimCounterController implements Initializable {
 
         radial1.setStyleModel(STYLE_MODEL_1);
         radial1.setThreshold(15);
-        radial1.setPrefSize(250, 250);
+        radial1.setPrefSize(350, 350);
 
         radial2.setStyleModel(STYLE_MODEL_2);
         radial2.setThreshold(70);
         radial2.setTickLabelOrientation(Gauge.TicklabelOrientation.NORMAL);
-        radial2.setPrefSize(250, 250);
+        radial2.setPrefSize(350, 350);
 
         radial3.setStyleModel(STYLE_MODEL_1);
         radial3.setThreshold(10);
-        radial3.setPrefSize(250, 250);
+        radial3.setPrefSize(350, 350);
+
+        // TODO: should be doing this in css or make it fluid
+        flip1.setPrefSize(200, 344);
+        flip2.setPrefSize(200, 344);
+        flip3.setPrefSize(200, 344);
+        flip4.setPrefSize(200, 344);
+        flip5.setPrefSize(200, 344);
+        flip6.setPrefSize(200, 344);
+        flip7.setPrefSize(200, 344);
+
+
     }
 
     /**
