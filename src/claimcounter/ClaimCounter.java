@@ -32,12 +32,7 @@ public class ClaimCounter extends Application {
         public void handle(long l) {
             long currentNanoTime = System.nanoTime();
                 if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
-                    data.updateData();
-
-                    controller.setCounter(data.fetch("claim_count"));
-                    controller.setRadial1(data.fetch("estimates_per_hour"));
-                    controller.setRadial2(data.fetch("estimates_today"));
-                    controller.setRadial3(data.fetch("claims_today"));
+                    setGauges();
 
                     lastTimeCall = System.nanoTime();
                 }
@@ -67,6 +62,15 @@ public class ClaimCounter extends Application {
 
         //Parent root = (Parent) fxmlLoader.load(location.openStream());
         primaryStage.setScene(new Scene(root));
+    }
+    
+    private void setGauges() {
+        data.updateData();
+
+        controller.setCounter(data.fetch("claim_count"));
+        controller.setRadial1(data.fetch("estimates_per_hour"));
+        controller.setRadial2(data.fetch("estimates_today"));
+        controller.setRadial3(data.fetch("claims_today"));
     }
 
     //@Override
