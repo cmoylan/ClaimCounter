@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-//import claimcounter.ClaimCounterController;
 
 /**
  *
@@ -26,14 +25,16 @@ public class ClaimCounter extends Application {
     private long                    lastTimeCall = 0;
     private ClaimCounterController  controller;
     private ClaimData               data;
+    private ClaimNotifier           notifier;
+    private ClaimSubscription       subscription;
 
     private final AnimationTimer TIMER        = new AnimationTimer() {
         @Override
+        // TODO: not sure if this is needed anymore
         public void handle(long l) {
             long currentNanoTime = System.nanoTime();
                 if (currentNanoTime > lastTimeCall + TIME_PERIOD) {
-                    setGauges();
-
+                    // Any logic that you want to run periodically goes here
                     lastTimeCall = System.nanoTime();
                 }
             }
@@ -53,8 +54,14 @@ public class ClaimCounter extends Application {
         // Store controller on the instance so that it can be accessed
         controller = fxmlLoader.getController();
 
-        // Load data to drive the counter
-        data = new ClaimData();
+        // Create the notifier object
+        notifier = new ClaimNotifier(getClass());
+
+        // Pass the notifier object to the controller
+        controller.setNotifier(notifier);
+
+        // Instantiate ClaimSubscription with the current ClaimCounter instance.
+        subscription = new ClaimSubscription(this);
 
         // Set some window properties
         primaryStage.setResizable(true);
@@ -63,10 +70,8 @@ public class ClaimCounter extends Application {
         //Parent root = (Parent) fxmlLoader.load(location.openStream());
         primaryStage.setScene(new Scene(root));
     }
-    
-    private void setGauges() {
-        data.updateData();
 
+    public void setGauges(ClaimData data) {
         controller.setCounter(data.fetch("claim_count"));
         controller.setRadial1(data.fetch("estimates_per_hour"));
         controller.setRadial2(data.fetch("estimates_today"));
@@ -81,6 +86,8 @@ public class ClaimCounter extends Application {
     @Override
     public void stop() {
         TIMER.stop();
+        subscription.stop();
+        // Stop subscribing here
     }
 
     @Override

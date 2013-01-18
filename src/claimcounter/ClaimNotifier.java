@@ -34,6 +34,11 @@ public class ClaimNotifier {
         Clip clip;
 
         try {
+            // TODO: this might work and would be much cleaner than all this
+            //       instance reference passing
+            // this.getClass().getResourceAsStream(sound)
+            // instead of:
+            // main.getResourceAsStream...
             InputStream audioStream = main.getResourceAsStream(filePath);
             InputStream bufferedIn = new BufferedInputStream(audioStream);
 
