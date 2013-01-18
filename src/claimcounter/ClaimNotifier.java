@@ -5,7 +5,6 @@
 package claimcounter;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.InputStream;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -18,22 +17,24 @@ import javax.sound.sampled.DataLine;
  * @author chrismoylan
  */
 public class ClaimNotifier {
+
     private Class main;
-    
+    private String soundDir = "/resources/sounds";
+
     public ClaimNotifier(Class mainClass) {
+        // NOTE: this is necessary to get the resources folder
         main = mainClass;
     }
 
-    public void doIt() {
+    public void play(String sound) {
+        String filePath = String.format("%s/%s", soundDir, sound);
+        AudioInputStream stream;
+        AudioFormat format;
+        DataLine.Info info;
+        Clip clip;
+
         try {
-            File yourFile;
-            AudioInputStream stream;
-            AudioFormat format;
-            DataLine.Info info;
-            Clip clip;
-            
-            //yourFile = new File(
-            InputStream audioStream = main.getResourceAsStream("/resources/sounds/unstoppable.wav");
+            InputStream audioStream = main.getResourceAsStream(filePath);
             InputStream bufferedIn = new BufferedInputStream(audioStream);
 
             stream = AudioSystem.getAudioInputStream(bufferedIn);
