@@ -25,7 +25,7 @@ import org.json.simple.parser.JSONParser;
  * @author chrismoylan
  */
 public class ClaimData {
-    private String urlString = "https://snapsheet.me/counter_data";
+    private String urlString = "https://localhost/counter_data";
     private JSONObject counterDataJSON;
 
     public ClaimData() {
