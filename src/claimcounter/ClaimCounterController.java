@@ -50,6 +50,8 @@ public class ClaimCounterController implements Initializable {
 
     private ClaimNotifier notifier;
 
+    private Integer claimCount = 0;
+
     /**
      * Initializes the controller class.
      */
@@ -146,16 +148,17 @@ public class ClaimCounterController implements Initializable {
      * @param val
      */
     public void setCounter(Integer val) {
+        if (val > claimCount) {
+            // claim horn
+            notifier.play("boathorn.wav");
+        }
+
+        claimCount = val;
         setCounter(val.toString());
     }
 
     // TODO: --- this kind of sucks, fix it ---
     public void setRadial1(Integer val) {
-        if (val > radial1.getValue()) {
-            // claim horn
-            notifier.play("boathorn.wav");
-        }
-
         radial1.setValue(val);
     }
 
