@@ -18,15 +18,9 @@ import javax.sound.sampled.DataLine;
  */
 public class ClaimNotifier {
 
-    private Class main;
-    private String soundDir = "/resources/sounds";
+    private static String soundDir = "/resources/sounds";
 
-    public ClaimNotifier(Class mainClass) {
-        // NOTE: this is necessary to get the resources folder
-        main = mainClass;
-    }
-
-    public void play(String sound) {
+    public static void play(String sound) {
         String filePath = String.format("%s/%s", soundDir, sound);
         AudioInputStream stream;
         AudioFormat format;
@@ -34,12 +28,7 @@ public class ClaimNotifier {
         Clip clip;
 
         try {
-            // TODO: this might work and would be much cleaner than all this
-            //       instance reference passing
-            // this.getClass().getResourceAsStream(sound)
-            // instead of:
-            // main.getResourceAsStream...
-            InputStream audioStream = main.getResourceAsStream(filePath);
+            InputStream audioStream = ClaimNotifier.class.getResourceAsStream(filePath);
             InputStream bufferedIn = new BufferedInputStream(audioStream);
 
             stream = AudioSystem.getAudioInputStream(bufferedIn);

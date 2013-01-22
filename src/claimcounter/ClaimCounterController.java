@@ -48,8 +48,6 @@ public class ClaimCounterController implements Initializable {
 
     private Integer SPLIT_FLAP_LENGTH = 7;
 
-    private ClaimNotifier notifier;
-
     private Integer claimCount = 0;
 
     /**
@@ -136,10 +134,6 @@ public class ClaimCounterController implements Initializable {
 
     }
 
-    public void setNotifier(ClaimNotifier claimNotifier) {
-        notifier = claimNotifier;
-    }
-
     /**
      * Convenience method so you can pass an integer to setCounter.
      *
@@ -150,14 +144,13 @@ public class ClaimCounterController implements Initializable {
     public void setCounter(Integer val) {
         if (val > claimCount) {
             // claim horn
-            notifier.play("boathorn.wav");
+            ClaimNotifier.play("boathorn.wav");
         }
 
         claimCount = val;
         setCounter(val.toString());
     }
 
-    // TODO: --- this kind of sucks, fix it ---
     public void setRadial1(Integer val) {
         radial1.setValue(val);
     }
@@ -169,6 +162,4 @@ public class ClaimCounterController implements Initializable {
     public void setRadial3(Integer val) {
         radial3.setValue(val);
     }
-    // --- END TODO ---
-
 }

@@ -25,7 +25,6 @@ public class ClaimCounter extends Application {
     private long                    lastTimeCall = 0;
     private ClaimCounterController  controller;
     private ClaimData               data;
-    private ClaimNotifier           notifier;
     private ClaimSubscription       subscription;
 
     private final AnimationTimer TIMER        = new AnimationTimer() {
@@ -54,13 +53,9 @@ public class ClaimCounter extends Application {
         // Store controller on the instance so that it can be accessed
         controller = fxmlLoader.getController();
 
-        // Create the notifier object
-        notifier = new ClaimNotifier(getClass());
-
-        // Pass the notifier object to the controller
-        controller.setNotifier(notifier);
-
         // Instantiate ClaimSubscription with the current ClaimCounter instance.
+        // TODO: move .setGuages into controller and just pass controller
+        //       instance here.
         subscription = new ClaimSubscription(this);
 
         // Set some window properties
@@ -71,6 +66,8 @@ public class ClaimCounter extends Application {
         primaryStage.setScene(new Scene(root));
     }
 
+    // TODO: consider moving into the controller, doesn't seem like this belongs
+    //       here.
     public void setGauges(ClaimData data) {
         controller.setCounter(data.fetch("claim_count"));
         controller.setRadial1(data.fetch("estimates_per_hour"));
