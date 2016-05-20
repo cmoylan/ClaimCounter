@@ -39,7 +39,7 @@ public class ClaimData {
             Object value = counterDataJSON.get(key);
 
             if (value != null) {
-                // TODO: this seems a little rediculous
+                // TODO: this seems a little ridiculous
                 count = Integer.valueOf(value.toString());
             }
         }
